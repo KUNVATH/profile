@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color:black;
+      transition: background-color 0.3s;
+    }
+    header {
+      background-color: black;
+      color: midnightblue;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    nav {
+      /* background-color: #555; */
+      color: midnightblue;
+      /* padding: 10px; */
+      text-align: center;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    section {
+      padding: 20px;
+    }
+    footer {
+      background-color: black;
+      color: midnightblue;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .profile-img {
+      display: block;
+      margin: 20px auto;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+    }
+
+        a {
+        /* display: block; */
+        color: midnightblue;
+        padding: 5px 10px;
+        text-decoration: none;
+        }
+
+        a.active {
+        background-color: midnightblue;
+        color: black;
+        }
+
+        a:hover:not(.active) {
+        background-color: #444;
+        color: midnightblue;
+        }
+    
+    /* Media Queries for Responsive Layout */
+    @media (max-width: 600px) {
+      header {
+        padding: 10px;
+      }
+      nav {
+        padding: 5px;
+        font-size: 14px;
+      }
+      section {
+        padding: 10px;
+      }
+      footer {
+        padding: 5px;
+      }
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="welcome-text"></h1>
+    <button onclick="toggleDarkMode()">Dark Mode</button>
+    <span onclick="toggleMenu()" class="menu-icon">&#9776;</span>
+  </header>
+  <nav id="menu">
+    <ul>
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <!-- <li><a href="#contact">Contact</a></li> -->
+        <a href="#about">About</a>
+    </ul>
+  </nav>
+  <section style="color: white;">
+    <img class="profile-img" src="https://scontent.fpnh24-1.fna.fbcdn.net/v/t39.30808-6/275751151_480604320274909_2645318226093120830_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9c7eae&_nc_eui2=AeHi8GQAZWdI3vni7EN4LFicGyPTU0olCd0bI9NTSiUJ3bF8bnmk8FvwU7p_0RSWQurhT5gSr2GgDTTbQ3UPRorM&_nc_ohc=4C866y_DuKYAX9iinx4&_nc_ht=scontent.fpnh24-1.fna&oh=00_AfD-9vQwrF5c5H8Pb9UhPyEEOT8Lf7FRNmqPtZGqWI_LWA&oe=65C161D4" alt="">
+    <h2>About Me</h2>
+    <p>I am a Junior Mobile Developer with expertise in Flutter. I have a passion for coding and enjoy with any new technology.</p>
+    <h3>Popular Features</h3>
+    <ul>
+      <li>Design Thinking</li>
+      <li>Interactive User Interface</li>
+      <li>Creative Portfolio Showcase</li>
+      <li>Contact Form</li>
+    </ul>
+  </section>
+  <footer>
+    &copy; 2024 KUNVATH RIM
+  </footer>
+
+  <script>
+    let welcomeText = document.getElementById('welcome-text');
+    let text = "Welcome to My Website!";
+    
+    function typeWriter() {
+      welcomeText.innerHTML = "";
+      let index = 0;
+      
+      function addLetter() {
+        if (index < text.length) {
+          welcomeText.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(addLetter, 150);
+        } else {
+          setTimeout(typeWriter, 2000); // Repeat after a pause
+        }
+      }
+      
+      addLetter();
+    }
+
+    typeWriter();
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleMenu() {
+      let menu = document.getElementById('menu');
+      if (menu.style.display === "none") {
+        menu.style.display = "block";
+      } else {
+        menu.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
